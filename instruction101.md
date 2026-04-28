@@ -15,5 +15,4 @@ Case Scenario - 5 Group members working on a project
 __Member 1__ will act as the "team lead" for this lab.
 
 1. __Confirm that your Team Members are Collaborators__: Go to __Settings__ > **Collaborators**. One should see all the members listed with "Write" access or "Admin" access
-
-2. 
+ 
