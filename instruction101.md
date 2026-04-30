@@ -31,8 +31,14 @@ __Member 1__ will act as the "team lead" for this lab.
 3. Ensure that your team members are added to the project as collaborators with **Admin** rights. This can be done in the project **Settings** > **Manage Access**
 4. Create iterations and specify the start and end dates for each iteration. This is available under **Settings** > **Iterations** 
 
-
-
+4. __Create Milestones__
+1. Go to the issues tab and click on **Milestones**.
+2. Create 3 milestones and:
+    * Assign appropriate due dates for each to align with the iterations you set up in the project.
+    * Add an appropriate description for each milestone to clarify the goals and expectations
+        * 50% Complete Milestone
+        * 75% Complete Milestone
+        * 100% Complete Milestone
 
 
 
