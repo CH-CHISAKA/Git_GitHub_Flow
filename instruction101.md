@@ -25,13 +25,13 @@ __Member 1__ will act as the "team lead" for this lab.
 * This ensures that no team member can bypass the review process. At least 1 other team member must agree with the changes before they can be merged into main.
 * Go to **Settings** > **Rulesets** and confirm that the new ruleset is active and correctly configured.
 
-3. __Create a Project__
+## 3. __Create a Project__
 1. Go to the **Projects** tab in the repository and click on **New Project**
 2. Select the **Iterative Development** template and name it "**[Project Name]...**
 3. Ensure that your team members are added to the project as collaborators with **Admin** rights. This can be done in the project **Settings** > **Manage Access**
 4. Create iterations and specify the start and end dates for each iteration. This is available under **Settings** > **Iterations** 
 
-4. __Create Milestones__
+## 4. __Create Milestones__
 1. Go to the issues tab and click on **Milestones**.
 2. Create 3 milestones and:
     * Assign appropriate due dates for each to align with the iterations you set up in the project.
@@ -40,7 +40,7 @@ __Member 1__ will act as the "team lead" for this lab.
         * 75% Complete Milestone
         * 100% Complete Milestone
 
-5. __Creating the Task Backlog (All Members)__
+## 5. __Creating the Task Backlog (All Members)__
 Determine the specific technical tasks that need to be completed.
 Define each task clearly and assign to a specific team member.
 Once tasks have been identified, follow these steps:
@@ -58,7 +58,7 @@ Example issues:
     * **Member 4**: Issue #4 - 75% Complete Milestone - Title: feature/project-name/research-on-ETL-ELT-EtLT. Description: Create a data_pipeline.md differentiating between ETL, ELT, and EtLT in the context of compliance with the legal requirements in an industry.
     * **Member 5**: Issue #5 - 100% Complete Milestone - Title: feature/project-name/research-on-data-governance. Description: Add a governance.md file reviewing data governance and access to PII.
 
-6. __Assigning Issues to Iterations and Managing the Status of Issues__ 
+## 6. __Assigning Issues to Iterations and Managing the Status of Issues__ 
 1. Go to the Projects tab and open the "__[Project Name]__" project. Navigate to the **My items** view where you can see all the issues in the backlog.
 2. For each issue, click on the issue title and assign it to the appropriate iteration based on its milestone. Example:
     * Issues #1, #2, and #3 are planned for Iteration 1, which corresponds to the **50% Complete Milestone**.
@@ -78,7 +78,7 @@ The team members should have daily brief meetings to discuss the status of their
 
 Such meetings are similar to "stand-up meetings" in agile development, where team members quickly share updates on their work, any blockers they are facing, and their plans for the day. This promotes transparency and collaboration within the team. It helps you to avoid surprises a few hours to the deadline.
 
-7. __The GitHub Flow Cycle__
+## 7. __The GitHub Flow Cycle__
 
 Each member must follow these steps for their respective issue.
 
@@ -177,3 +177,83 @@ git pull origin main
 ```
 
 **Why** **--no-ff** ? This option always creates a "merge commit," documenting the integration as a deliberate event in history. This is ideal in academic contexts so that research supervisors can see the branch evolution and your collaborative process. It also enables the lecturer to see the history of changes in a more structured way, which is beneficial for grading and feedback.
+
+## __8. Handling Merge Conflicts (Member 4 and 5)__
+A merge conflict occurs when two branches have each made different changes to the **same lines** in the **same file**. Git cannot decide which version is correct, so it pauses and asks you to resolve it manually.
+
+This section engineers a guaranteed conflict so that every team member experiences the resolution process.
+
+**Setup** — creating the conflict (Members 4 and 5, working simultaneously).
+
+Both members must edit the same line in README.md before either has merged. Member 4 adds the following line to README.md on their feature branch and commits it:
+```bash 
+echo "Project lead: Member 4 — responsible for overall coordination." >> README.md
+git add README.md
+git commit -m "Add project lead attribution to README"
+```
+Member 5 adds a different line at the exact same position on their own feature branch and commits it:
+```bash
+echo "Project lead: Member 5 — responsible for governance and audit." >> README.md
+git add README.md
+git commit -m "Add governance author attribution to README"
+```
+Member 4 merges first through the normal PR process. By the time Member 5 attempts to merge, main has moved forward and the two branches have diverged on the same line.
+
+### Resolution process (Member 5)
+**IMPORTANT**: The standard practice before opening any PR is to update your feature branch with the latest changes from main. This is where conflicts are detected.
+Before opening a PR, Member 5 updates their local feature branch with the latest state of main:
+```shell
+git checkout feature/project-name/description
+git fetch origin
+git merge origin/main
+```
+Git will halt and report a conflict. The terminal output will resemble:
+```shell
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts then commit the result.
+```
+Open README.md in your IDE (VS Code). Git marks the conflict zone as follows:
+```shell
+<<<<<<< HEAD
+Project lead: Member 5 — responsible for governance and audit.
+=======
+Project lead: Member 4 — responsible for overall coordination.
+>>>>>>> origin/main
+```
+The section between **<<<<<<< HEAD and ======= ** is your version
+
+The section between **======= and >>>>>>> **origin/main is the version already in main.
+
+Member 5 must decide what the final file should say. In this case, both attributions are valid — combine them as follows:
+
+```shell
+Project lead: Member 4 (coordination) and Member 5 (governance and audit).
+```
+Delete all three conflict markers (<<<<<<<, =======, >>>>>>>) and save the file.
+
+Stage the resolved file and complete the merge:
+```shell
+git add README.md
+git commit -m "Resolve merge conflict: consolidate dual attribution in README"
+```
+Member 5's branch now contains a clean merge commit. Proceed to push and open your PR as normal.
+
+**Key principle**: A conflict is not an error — it is Git asking a human to make a decision that a machine cannot. The discipline lies in reading both versions carefully before choosing, not in simply accepting one side and discarding the other.
+
+The quality of the resolution matters as much as the resolution itself. In a professional codebase, a careless conflict resolution that silently discards one team member's valid change is far more dangerous than the conflict itself, precisely because it leaves no trace.
+
+The actual discipline is to understand both sides of the conflict well enough to make an informed editorial decision.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
