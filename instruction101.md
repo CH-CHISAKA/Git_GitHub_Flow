@@ -78,4 +78,102 @@ The team members should have daily brief meetings to discuss the status of their
 
 Such meetings are similar to "stand-up meetings" in agile development, where team members quickly share updates on their work, any blockers they are facing, and their plans for the day. This promotes transparency and collaboration within the team. It helps you to avoid surprises a few hours to the deadline.
 
+7. __The GitHub Flow Cycle__
 
+Each member must follow these steps for their respective issue.
+
+**Member 1** will follow these steps last
+**Step A: Branching**
+On your local machine, create and switch to a new branch for your task.
+Note: The branch name should follow the format `feature/project-name/description` to maintain clarity and consistency across the team. 
+For example, if you are working on an Issue then your branch name could be feature/project-name/data-source. This naming convention helps everyone in the team quickly understand the purpose of the branch and its connection to the corresponding lab.
+```bash
+git checkout -b feature/project-name/description
+```
+*Note: A branch is an independent line of development used for team governance.*
+
+**Step B: Working and Committing**
+Create your assigned file and confirm that there is a modification ready to be committed.
+```shell
+git status
+```
+You can configure the default commit message editor to be **VS Code** for better formatting of the commit message body. Run the following command:
+```shell
+git config --global core.editor "code --wait"
+```
+
+Once ready, stage and commit it:
+git add .
+git commit
+
+**Important**: What constitutes an **academically sound** commit message?
+A commit message is a permanent, public record of **why** a change was made — not merely what changed (the diff already shows that). In an academic context, it serves the same function as a lab notebook entry: it must be comprehensible to a reader who has no prior context and who may be reviewing the work weeks later.
+
+Your `git commit` command (without the `-m` flag) will open a text editor. Structure your message as follows:
+
+```shell
+<Verb in imperative mood> <concise description of the change> (≤72 characters)
+
+<Blank line — mandatory>
+
+Why this change was made:
+<One to three sentences explaining the academic or technical motivation.
+What problem does this address?
+What would happen without this change?>
+
+Related issue: #<issue-number>
+```
+
+Why the **imperative mood?** Git itself uses it — "Merge branch", "Revert commit", "Add file". Reading your message alongside Git's own messages should feel consistent. Write "Add feature" rather than "*Added feature*" or "*Adding feature*".
+
+Example:
+```bash 
+Add data_source.md listing primary project name source types
+
+This file documents the four primary data source categories used
+in Business Intelligence architectures: transactional databases,
+flat files, APIs, and streaming sources from various departments.
+
+It is important to understand these categories as they inform the
+design of data pipelines and the choice of tools for extraction
+and transformation.
+
+Related issue: #2
+```
+
+__Step C: Pushing and Pull Request__
+
+Push your brach to GitHub
+
+```shell
+git push origin feature/lab-number/description
+```
+1. Go to GitHub (the website) and open a **Pull Request (PR)** from your branch to main. There should be a green button prompting you to "Compare & pull request" after pushing. If not, then you can navigate to the "**Pull requests**" tab and click on "New pull request" to select your branch and create the PR.
+
+2. Name the PR appropriately, e.g., "`Merge feature/project-name/update-project-readme into main`" and add a detailed description of the changes made. This description should provide context for the reviewer, explaining the motivation behind the changes and any relevant details that would help them understand the purpose of the PR.
+
+3. Link the PR to the corresponding issue by including `#issue-number` in the PR description. This creates a connection between the changes and the issue it addresses. A common way to include the issue number is to use the text "Closes `#issue-number"` in the PR description, e.g., `"Closes #2"`. This not only links the PR to the issue but also automatically closes the issue when the PR is merged.
+
+4. Assign a teammate to perform a **Code Review**. If this was your research/project, then your research supervisor would be the assigned reviewer. The author of the PR should not merge their own PR. This is a critical aspect of team governance and ensures that all changes are reviewed by at least one other team member before being integrated into the main branch.
+
+5. The assignees can be anyone who contributed to the commits in the branch, the label can be "**enhancement**" for a new feature, the projects should be the 202604 Business Intelligence Labs, and the milestone should correspond to the one assigned to the issue that the feature branch addresses.
+
+__Step D: The Code Review__
+
+* **The Reviewer**: Check the Files changed for clarity and accuracy based on the source material. Approve the PR if it meets requirements. If not, request changes and provide specific feedback in the comments.
+* **The Author**: Address any feedback provided during the review. If it is approved, then the author can proceed to merge the PR. If changes are requested, make the necessary updates and push them to the same branch. The PR will automatically update with the new commits, and the reviewer can re-review until it is approved.
+
+**Step E: Merging WITHOUT Fast-Forward (--no-ff)**
+Once approved, the merge must be performed. To ensure the process is visible for audit purposes, we will avoid "Fast-Forward" merging. Click the green "Merge pull request" on the GitHub web interface, then select "Create a merge commit" to ensure that the merge is explicitly recorded in the history. This should achieve the same result as running the following command in the terminal:
+
+```bash
+git merge --no-ff feature/project-name/description
+```
+After successfully merging the pull request in the web browser, team members should pull the latest changes to their local main branch to stay up to date:
+
+```shell
+git checkout main
+git pull origin main
+```
+
+**Why** **--no-ff** ? This option always creates a "merge commit," documenting the integration as a deliberate event in history. This is ideal in academic contexts so that research supervisors can see the branch evolution and your collaborative process. It also enables the lecturer to see the history of changes in a more structured way, which is beneficial for grading and feedback.
