@@ -16,6 +16,15 @@ __Member 1__ will act as the "team lead" for this lab.
 
 1. __Confirm that your Team Members are Collaborators__: Go to __Settings__ > **Collaborators**. One should see all the members listed with "Write" access or "Admin" access
 
+2. __Configure Branch Protection__
+* Go to **Setting** > **Branches** **Add Branches ruleset**
+* Create a rule named `pr-and-1-approval-required-to merge.`
+* Set the enforcement status to **Active**
+* Include the default branch as the target
+* **Enable**: "Require a pull request before merging" and set "Required approvals" to 1
+* This ensures that no team member can bypass the review process. At least 1 other team member must agree with the changes before they can be merged into main.
+* Go to **Settings** > **Rulesets** and confirm that the new ruleset is active and correctly configured.
+
 
 
 
