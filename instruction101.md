@@ -25,8 +25,11 @@ __Member 1__ will act as the "team lead" for this lab.
 * This ensures that no team member can bypass the review process. At least 1 other team member must agree with the changes before they can be merged into main.
 * Go to **Settings** > **Rulesets** and confirm that the new ruleset is active and correctly configured.
 
-
-
+3. __Create a Project__
+1. Go to the **Projects** tab in the repository and click on **New Project**
+2. Select the **Iterative Development** template and name it "**[Project Name]...**
+3. Ensure that your team members are added to the project as collaborators with **Admin** rights. This can be done in the project **Settings** > **Manage Access**
+4. Create iterations and specify the start and end dates for each iteration. This is available under **Settings** > **Iterations** 
 
 
 
