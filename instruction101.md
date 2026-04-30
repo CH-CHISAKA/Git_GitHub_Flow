@@ -40,8 +40,23 @@ __Member 1__ will act as the "team lead" for this lab.
         * 75% Complete Milestone
         * 100% Complete Milestone
 
+5. __Creating the Task Backlog (All Members)__
+Determine the specific technical tasks that need to be completed.
+Define each task clearly and assign to a specific team member.
+Once tasks have been identified, follow these steps:
 
+    1. Each member must create a "GitHub Issue" to represent a specific technical task.
+    2. Each issue should be assigned to the respective member of the team.
+    3. Each issue should be assigned the label "**enhancement**".
+    4. Each issue should be assigned the type "**Feature**"
+    5. Each issue should be assigned to the "[Project Name]... project"
 
+Example issues:
+    * **Member 1**: Issue #1 - 50% Complete Milestone - Title: feature/project-name/update-project-README. Description: Update the project's README with team roles.
+    * **Member 2**: Issue #2 - 50% Complete Milestone - Title: feature/project-name/research-on-data-sources. Description: Create a data_source.md file reviewing sources of data in a business.
+    * **Member 3**: Issue #3 - 50% Complete Milestone - Title: feature/project-name/research-on-star-schema. Description: Create a warehouse_schema.md describing a Star Schema.
+    * **Member 4**: Issue #4 - 75% Complete Milestone - Title: feature/project-name/research-on-ETL-ELT-EtLT. Description: Create a data_pipeline.md differentiating between ETL, ELT, and EtLT in the context of compliance with the legal requirements in an industry.
+    * **Member 5**: Issue #5 - 100% Complete Milestone - Title: feature/project-name/research-on-data-governance. Description: Add a governance.md file reviewing data governance and access to PII.
 
 
 
