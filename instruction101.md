@@ -58,8 +58,24 @@ Example issues:
     * **Member 4**: Issue #4 - 75% Complete Milestone - Title: feature/project-name/research-on-ETL-ELT-EtLT. Description: Create a data_pipeline.md differentiating between ETL, ELT, and EtLT in the context of compliance with the legal requirements in an industry.
     * **Member 5**: Issue #5 - 100% Complete Milestone - Title: feature/project-name/research-on-data-governance. Description: Add a governance.md file reviewing data governance and access to PII.
 
+6. __Assigning Issues to Iterations and Managing the Status of Issues__ 
+1. Go to the Projects tab and open the "__[Project Name]__" project. Navigate to the **My items** view where you can see all the issues in the backlog.
+2. For each issue, click on the issue title and assign it to the appropriate iteration based on its milestone. Example:
+    * Issues #1, #2, and #3 are planned for Iteration 1, which corresponds to the **50% Complete Milestone**.
+    * Issue #4 is planned for Iteration 2, which corresponds to the **75% Complete Milestone**.
+    * Issue #5 is planned for Iteration 3, which corresponds to the **100% Complete Milestone**.
 
+One should see the issue under the "**current iteration**" tab of the project listed in the Backlog.
 
+Issues can move across 5 states by default: *Backlog*, *Ready*, *In Progress*, *In Review*, and *Done*.
+* **Backlog**: The issue is created but not yet started.
+* **Ready**: The issue is ready to be worked on but has not been started yet.
+* **In Progress**: The issue is currently being worked on.
+* **In Review**: The issue has been worked on and is being reviewed by others, i.e there is a code review before the Pull Request is approved and merged.
+* **Done**: The issue has been completed, approved, and merged into the main branch through the Pull Request process.
 
+The team members should have daily brief meetings to discuss the status of their assigned issues and update the status accordingly in the project board. This helps in tracking the progress of each task and ensures that everyone is on the same page regarding the project's timeline and deliverables.
+
+Such meetings are similar to "stand-up meetings" in agile development, where team members quickly share updates on their work, any blockers they are facing, and their plans for the day. This promotes transparency and collaboration within the team. It helps you to avoid surprises a few hours to the deadline.
 
 
