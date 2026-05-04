@@ -244,16 +244,29 @@ The quality of the resolution matters as much as the resolution itself. In a pro
 
 The actual discipline is to understand both sides of the conflict well enough to make an informed editorial decision.
 
+## __9. Summary of Merging Techniques__
 
+While using **Git Merge (--no-ff)**, be aware of these alternatives:
+* **Git Rebase:** Rewrites history by moving the base of your branch to the tip of `main`. It creates a clean, linear history but reduces traceability.
+* **Squash Commits:** Combines all commits from a feature branch into one single commit on `main`. This is useful for cleaning up "messy" intermediate commits but discards individual commit details.
 
+## __10. Auditing Repository History (git log)__
+**All members** should practice viewing the "technical lab notes" of the project to ensure the process is transparent.
+* Go back to the main branch: `git checkout main`/`git switch main`
+* Fetch the latest changes: `git pull origin main`
+* Confirm that the remote branch is up to date with the branch in the origin by running `git status`
+* Then run `git log --oneline --graph` to view the repository history. You should see a series of "knots" representing the deliberate merge commits made by each team member
+* View a **Graph of Merges**: To see how branches have evolved and joined, run:
+```bash
+git log --merges
+```
+*Note: This provides a quick overview of the branch evolution and is ideal for supervisors to see your collaborative process* 
 
-
-
-
-
-
-
-
+* **Inspect Recent Changes:** To see the full details of the most recent commit, including the reasoning in the commit body, use:
+```bash
+git show HEAD
+```
+*Note: The **HEAD** pointer identifies your current location in the repository's history.*
 
 
 
