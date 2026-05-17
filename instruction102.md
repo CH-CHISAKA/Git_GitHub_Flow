@@ -50,7 +50,3 @@ git status
 
 4. __Clean up:__
     * Switch back to the branch that had the misplaced commit and use `git reset --hard HEAD~1` (see the next Section) to remove the duplicate commit from the wrong location.
-
-
-
-

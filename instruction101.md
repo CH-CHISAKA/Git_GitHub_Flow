@@ -268,5 +268,3 @@ git show HEAD
 ```
 *Note: The **HEAD** pointer identifies your current location in the repository's history.*
 
-
-
